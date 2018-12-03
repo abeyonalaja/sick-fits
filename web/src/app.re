@@ -29,6 +29,11 @@ let make = _children => {
   ...component,
   reducer,
   initialState: () => {route: ReasonReact.Router.dangerouslyGetInitialUrl() |> mapUrlToRoute},
+  didMount: self => {
+    let watchid = ReasonReact.Router.watchUrl(url => self.send(ChangeRoute(url |> mapUrlToRoute)));
+    self.onUnmount(() => ReasonReact.Router.unwatchUrl(watchid));
+  },
+
   render: ({state}) =>
     <div className="conatiner">
       <Page>
