@@ -13,8 +13,8 @@ let header =
       ],
     ),
     selector(
-      "& sub-bar",
-      [display(grid), gridTemplateColumns([fr(1.0), auto]), borderBottom(px(10), solid, Theme.lightgrey)],
+      "& .sub-bar",
+      [display(grid), gridTemplateColumns([fr(1.0), auto]), borderBottom(px(1), solid, Theme.lightgrey)],
     ),
   ]);
 
